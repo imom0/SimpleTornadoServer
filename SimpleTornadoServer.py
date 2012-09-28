@@ -3,7 +3,7 @@
 
 
 """
-Use tornado's static file handler to replace SimpleHTTPServer in Python
+Use tornado's `StaticFileHandler` to replace `SimpleHTTPServer` in Python
 standard library, with this you can simply type only one command and run an
 HTTP server on the port you desired, the default port [8000] is as the same
 as the SimpleHTTPServer provided.
@@ -48,10 +48,11 @@ class IndexHandler(tornado.web.RequestHandler):
             files = os.listdir(path)
         else:
             files = os.listdir('.')
-        files = [file + '/'
-                if os.path.isdir(os.path.join(path, file))
-                else file
-                for file in files]
+        # TODO(imom0) filename encoding error
+        files = [filename + '/'
+                if os.path.isdir(os.path.join(path, filename))
+                else filename
+                for filename in files]
         html_template = """
         <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><html>
         <title>Directory listing for /{{ path }}</title>
@@ -59,8 +60,8 @@ class IndexHandler(tornado.web.RequestHandler):
         <h2>Directory listing for /{{ path }}</h2>
         <hr>
         <ul>
-        {% for file in files %}
-        <li><a href="{{ escape(file) }}">{{ escape(file) }}</a>
+        {% for filename in files %}
+        <li><a href="{{ escape(filename) }}">{{ escape(filename) }}</a>
         {% end %}
         </ul>
         <hr>
