@@ -17,7 +17,7 @@ import tornado.template
 import tornado.ioloop
 import tornado.httpserver
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 
 class IndexHandler(tornado.web.RequestHandler):
