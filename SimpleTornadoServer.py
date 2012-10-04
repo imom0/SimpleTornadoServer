@@ -60,7 +60,7 @@ class IndexHandler(tornado.web.RequestHandler):
         <hr>
         <ul>
         {% for filename in files %}
-        <li><a href="{{ filename }}">{{ escape(filename) }}</a>
+        <li><a href="{{ filename }}">{{ filename }}</a>
         {% end %}
         </ul>
         <hr>
