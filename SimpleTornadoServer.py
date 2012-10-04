@@ -47,7 +47,7 @@ class IndexHandler(tornado.web.RequestHandler):
         if path:
             files = os.listdir(path)
         else:
-            files = os.listdir('.')
+            files = os.listdir(os.curdir)
         files = [filename + '/'
                 if os.path.isdir(os.path.join(path, filename))
                 else filename
