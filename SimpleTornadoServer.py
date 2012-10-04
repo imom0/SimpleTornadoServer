@@ -48,7 +48,6 @@ class IndexHandler(tornado.web.RequestHandler):
             files = os.listdir(path)
         else:
             files = os.listdir('.')
-        # TODO(imom0) filename encoding error
         files = [filename + '/'
                 if os.path.isdir(os.path.join(path, filename))
                 else filename
@@ -61,7 +60,7 @@ class IndexHandler(tornado.web.RequestHandler):
         <hr>
         <ul>
         {% for filename in files %}
-        <li><a href="{{ escape(filename) }}">{{ escape(filename) }}</a>
+        <li><a href="{{ filename }}">{{ escape(filename) }}</a>
         {% end %}
         </ul>
         <hr>
