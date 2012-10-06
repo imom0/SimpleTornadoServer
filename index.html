@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Simple Tornado Server : `python -m SimpleTornadoServer` like SimpleHTTPServer." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Simple Tornado Server</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/imom0/SimpleTornadoServer">View on GitHub</a>
+
+          <h1 id="project_title">Simple Tornado Server</h1>
+          <h2 id="project_tagline">`python -m SimpleTornadoServer` like SimpleHTTPServer.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/imom0/SimpleTornadoServer/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/imom0/SimpleTornadoServer/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>SimpleTornadoServer</h1>
+
+<p>Use tornado's static file handler to replace <code>SimpleHTTPServer</code> in Python standard library, with this you can simply type only one command and run an HTTP server on the port you desired, the default port <strong>8000</strong> is as the same as the <code>SimpleHTTPServer</code> provided.</p>
+
+<h2>Installation</h2>
+
+<pre><code>python setup.py install
+</code></pre>
+
+<h2>Usage</h2>
+
+<pre><code>$ python -m SimpleTornadoServer
+Serving HTTP on 0.0.0.0 port 8000 ...
+</code></pre>
+
+<p>the default port is <code>8000</code>, or</p>
+
+<pre><code>$ python -m SimpleTornadoServer [PORT]
+</code></pre>
+
+<p>Also, you can use <code>SocketServer.ThreadingMixin</code> and <code>BaseHttpServer.HTTPServer</code> for the ability of concurrency.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Simple Tornado Server maintained by <a href="https://github.com/imom0">imom0</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
