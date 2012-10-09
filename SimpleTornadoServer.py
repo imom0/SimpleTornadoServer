@@ -33,7 +33,7 @@ class IndexHandler(tornado.web.RequestHandler):
         for index in ['index.html', 'index.htm']:
             index = os.path.join(path, index)
             if os.path.exists(index):
-                with open(index, 'r') as f:
+                with open(index, 'rb') as f:
                     self.write(f.read())
                     self.finish()
                     return
