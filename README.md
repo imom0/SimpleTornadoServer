@@ -19,3 +19,6 @@ the default port is `8000`, or
 	$ python -m SimpleTornadoServer [PORT]
 		
 Also, you can use `SocketServer.ThreadingMixin` and `BaseHttpServer.HTTPServer` for the ability of concurrency.
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/imom0/simpletornadoserver/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
