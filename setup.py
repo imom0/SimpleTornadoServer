@@ -6,7 +6,7 @@ install_requires = [
 
 setup(
     name='SimpleTornadoServer',
-    version='0.1',
+    version='1.0',
     description='better SimpleHTTPServer using tornado',
     author='iMom0',
     author_email='mobeiheart@gmail.com',

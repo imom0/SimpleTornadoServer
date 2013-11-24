@@ -11,6 +11,7 @@ as the SimpleHTTPServer provided.
 import os
 import sys
 import logging
+import signal
 
 import tornado.web
 import tornado.template
@@ -71,6 +72,11 @@ class IndexHandler(tornado.web.RequestHandler):
         return t.generate(files=files, path=path)
 
 
+def stop_server(signum, frame):
+    tornado.ioloop.IOLoop.instance().stop()
+    logging.info('Stopped!')
+
+
 def run():
     if sys.argv[1:]:
         port = int(sys.argv[1])
@@ -82,6 +88,7 @@ def run():
         (r'(.*)/$', IndexHandler,),
         (r'/(.*)$', tornado.web.StaticFileHandler, {'path': current_path}),
         ])
+    signal.signal(signal.SIGINT, stop_server)
 
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(port)
