@@ -1,7 +1,7 @@
 from setuptools import setup
 
 install_requires = [
-    'tornado>=2.0',
+    'tornado>=3.1.0',
 ]
 
 setup(

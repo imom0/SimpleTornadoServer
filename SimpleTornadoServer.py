@@ -77,6 +77,14 @@ def stop_server(signum, frame):
     logging.info('Stopped!')
 
 
+class StaticFileHandler(tornado.web.StaticFileHandler):
+
+    def write(self, chunk):
+        super(StaticFileHandler, self).write(chunk)
+        logging.debug('write called')
+        self.flush()
+
+
 def run():
     if sys.argv[1:]:
         port = int(sys.argv[1])
@@ -86,8 +94,8 @@ def run():
     logging.debug('cwd: %s' % current_path)
     application = tornado.web.Application([
         (r'(.*)/$', IndexHandler,),
-        (r'/(.*)$', tornado.web.StaticFileHandler, {'path': current_path}),
-        ])
+        (r'/(.*)$', StaticFileHandler, {'path': current_path}),
+    ])
     signal.signal(signal.SIGINT, stop_server)
 
     http_server = tornado.httpserver.HTTPServer(application)
