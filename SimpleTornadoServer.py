@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-# -*- coding: UTF-8 -*-
-
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 """
 Use tornado's `StaticFileHandler` to replace `SimpleHTTPServer` in Python
@@ -48,7 +48,7 @@ class IndexHandler(tornado.web.RequestHandler):
         if path:
             files = os.listdir(path)
         else:
-            files = os.listdir(os.curdir)
+            files = os.listdir('.')
         files = [filename + '/'
                 if os.path.isdir(os.path.join(path, filename))
                 else filename
@@ -90,7 +90,7 @@ def run():
         port = int(sys.argv[1])
     else:
         port = 8000
-    current_path = os.getcwd()
+    current_path = '.'
     logging.debug('cwd: %s' % current_path)
     application = tornado.web.Application([
         (r'(.*)/$', IndexHandler,),
